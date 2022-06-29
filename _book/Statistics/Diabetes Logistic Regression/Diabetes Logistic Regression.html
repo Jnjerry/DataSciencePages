@@ -1,0 +1,571 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction to Statistics · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../chapter1.html" />
+    
+    
+    <link rel="prev" href="../../k-means Clustering.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../k-means Clustering.html">
+            
+                <a href="../../k-means Clustering.html">
+            
+                    
+                    Statistics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="Diabetes Logistic Regression.html">
+            
+                <a href="Diabetes Logistic Regression.html">
+            
+                    
+                    Introduction to Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../chapter1.html">
+            
+                <a href="../../chapter1.html">
+            
+                    
+                    Chapter 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../k-means Clustering.html">
+            
+                <a href="../../k-means Clustering.html">
+            
+                    
+                    Week 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../week3.md">
+            
+                <span>
+            
+                    
+                    Week 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../week4.md">
+            
+                <span>
+            
+                    
+                    Week 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../Summary of Learning How to Learn.md">
+            
+                <span>
+            
+                    
+                    Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Introduction to Statistics</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="introduction">Introduction</h3>
+<ul>
+<li>The logistic regression model, despite its name, is actually a linear model for classification. </li>
+</ul>
+<p>Logistic regression has the same main idea as linear regression. The difference is that this technique is used when the output or dependent variable is binary meaning the outcome can have only two possible values</p>
+<h2 id="types-of-logistic-regression">Types of Logistic Regression:</h2>
+<p>Binary Logistic Regression: The target variable has only two possible outcomes such as Spam or Not Spam, Cancer or No Cancer.</p>
+<p>Multinomial Logistic Regression: The target variable has three or more nominal categories such as predicting the type of Wine.</p>
+<p>Ordinal Logistic Regression: the target variable has three or more ordinal categories such as restaurant or product rating from 1 to 5.</p>
+<h2 id="diabetes-logistic-regression-prediction">Diabetes Logistic Regression Prediction</h2>
+<h2 id="dataset-details">DataSet Details</h2>
+<p>Pregnancies decribes the number of times the person has been pregnant.</p>
+<p>Glucose describes the blood glucose level on testing.</p>
+<p>Blood pressure describes the diastolic blood pressure.</p>
+<p>Skin Thickenss describes the skin fold thickness of the triceps.</p>
+<p>Insulin describes the amount of insulin in a 2hour serum test.</p>
+<p>BMI describes he body mass index.</p>
+<p>DiabetesPedigreeFunction describes the family history of the person.</p>
+<p>Age describes the age of the person.</p>
+<p>Outcome describes if the person is predicted to have diabetes or not.</p>
+<h2 id="import-libraries">Import Libraries</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+<span class="hljs-keyword">import</span> warnings
+warnings.filterwarnings(<span class="hljs-string">&quot;ignore&quot;</span>, category=DeprecationWarning)
+</code></pre>
+<h2 id="loading-the-dataset">Loading the dataset</h2>
+<pre><code class="lang-python">df=pd.read_csv(<span class="hljs-string">&apos;diabetes.csv&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">df.head(<span class="hljs-number">5</span>)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pregnancies</th>
+      <th>Glucose</th>
+      <th>BloodPressure</th>
+      <th>SkinThickness</th>
+      <th>Insulin</th>
+      <th>BMI</th>
+      <th>DiabetesPedigreeFunction</th>
+      <th>Age</th>
+      <th>Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+      <td>148</td>
+      <td>72</td>
+      <td>35</td>
+      <td>0</td>
+      <td>33.6</td>
+      <td>0.627</td>
+      <td>50</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>85</td>
+      <td>66</td>
+      <td>29</td>
+      <td>0</td>
+      <td>26.6</td>
+      <td>0.351</td>
+      <td>31</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>183</td>
+      <td>64</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.3</td>
+      <td>0.672</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>89</td>
+      <td>66</td>
+      <td>23</td>
+      <td>94</td>
+      <td>28.1</td>
+      <td>0.167</td>
+      <td>21</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>137</td>
+      <td>40</td>
+      <td>35</td>
+      <td>168</td>
+      <td>43.1</td>
+      <td>2.288</td>
+      <td>33</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="data-exploration">Data Exploration</h2>
+<pre><code class="lang-python"><span class="hljs-comment">## check rows and columns</span>
+df.shape
+</code></pre>
+<pre><code>(768, 9)
+</code></pre><pre><code class="lang-python">df.dtypes
+</code></pre>
+<pre><code>Pregnancies                   int64
+Glucose                       int64
+BloodPressure                 int64
+SkinThickness                 int64
+Insulin                       int64
+BMI                         float64
+DiabetesPedigreeFunction    float64
+Age                           int64
+Outcome                       int64
+dtype: object
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># Check if there are any missing values</span>
+df.isnull().sum()
+</code></pre>
+<pre><code>Pregnancies                 0
+Glucose                     0
+BloodPressure               0
+SkinThickness               0
+Insulin                     0
+BMI                         0
+DiabetesPedigreeFunction    0
+Age                         0
+Outcome                     0
+dtype: int64
+</code></pre><pre><code class="lang-python">df.columns
+</code></pre>
+<pre><code>Index([&apos;Pregnancies&apos;, &apos;Glucose&apos;, &apos;BloodPressure&apos;, &apos;SkinThickness&apos;, &apos;Insulin&apos;,
+       &apos;BMI&apos;, &apos;DiabetesPedigreeFunction&apos;, &apos;Age&apos;, &apos;Outcome&apos;],
+      dtype=&apos;object&apos;)
+</code></pre><h3 id="heatmap">HeatMap</h3>
+<pre><code class="lang-python">fig, ax = plt.subplots(figsize = (<span class="hljs-number">18</span>, <span class="hljs-number">10</span>))
+<span class="hljs-comment">#cbar_kws= {&apos;orientation&apos;: &apos;horizontal&apos;}</span>
+sns.heatmap(df.corr(),annot=<span class="hljs-keyword">True</span>,vmin=<span class="hljs-number">-1</span>, vmax=<span class="hljs-number">1</span>, center= <span class="hljs-number">0</span>,cmap= <span class="hljs-string">&apos;coolwarm&apos;</span>,linewidths=<span class="hljs-number">3</span>, linecolor=<span class="hljs-string">&apos;black&apos;</span>, )
+</code></pre>
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre><p><img src="output_16_1.png" alt="png"></p>
+<h2 id="machine-learning">Machine Learning</h2>
+<pre><code class="lang-python"><span class="hljs-comment">## Import ML libraries</span>
+<span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> classification_report
+<span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler
+
+<span class="hljs-keyword">import</span> pickle
+</code></pre>
+<pre><code class="lang-python">X = df.drop([<span class="hljs-string">&apos;Outcome&apos;</span>], axis=<span class="hljs-number">1</span>)
+y = df[<span class="hljs-string">&apos;Outcome&apos;</span>]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+X_train,X_test,y_train,y_test = train_test_split(X,y,random_state=<span class="hljs-number">40</span>,test_size = <span class="hljs-number">0.3</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression
+lg = LogisticRegression()
+</code></pre>
+<pre><code class="lang-python">lg.fit(X_train,y_train)
+</code></pre>
+<pre><code>C:\Users\jnngugi\AppData\Roaming\Python\Python37\site-packages\sklearn\linear_model\_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)
+
+
+
+
+
+LogisticRegression()
+</code></pre><pre><code class="lang-python">y_pred = lg.predict(X_test)
+y_pred
+</code></pre>
+<pre><code>array([1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+       1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0,
+       0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+       1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+       1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0,
+       0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0,
+       1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+       1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+       1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+       1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], dtype=int64)
+</code></pre><pre><code class="lang-python">print(classification_report(y_test, y_pred))
+</code></pre>
+<pre><code>              precision    recall  f1-score   support
+
+           0       0.75      0.87      0.80       142
+           1       0.71      0.53      0.61        89
+
+    accuracy                           0.74       231
+   macro avg       0.73      0.70      0.70       231
+weighted avg       0.73      0.74      0.73       231
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># confusion matrix</span>
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> metrics
+cnf_matrix = metrics.confusion_matrix(y_test, y_pred)
+p = sns.heatmap(pd.DataFrame(cnf_matrix), annot=<span class="hljs-keyword">True</span>, cmap=<span class="hljs-string">&quot;YlGnBu&quot;</span> ,fmt=<span class="hljs-string">&apos;g&apos;</span>)
+plt.title(<span class="hljs-string">&apos;Confusion matrix&apos;</span>, y=<span class="hljs-number">1.1</span>)
+plt.ylabel(<span class="hljs-string">&apos;Actual label&apos;</span>)
+plt.xlabel(<span class="hljs-string">&apos;Predicted label&apos;</span>)
+</code></pre>
+<pre><code>Text(0.5, 15.0, &apos;Predicted label&apos;)
+</code></pre><p><img src="output_25_1.png" alt="png"></p>
+<pre><code class="lang-python">print(lg.predict([[<span class="hljs-number">1</span>,<span class="hljs-number">103</span>,<span class="hljs-number">30</span>,<span class="hljs-number">38</span>,<span class="hljs-number">83</span>,<span class="hljs-number">43.3</span>,<span class="hljs-number">0.183</span>,<span class="hljs-number">33</span>]]))
+</code></pre>
+<pre><code>[0]
+</code></pre><p><a href="https://www.youtube.com/watch?v=qWfzIYCvBqo" target="_blank">https://www.youtube.com/watch?v=qWfzIYCvBqo</a></p>
+<pre><code class="lang-python">
+
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../k-means Clustering.html" class="navigation navigation-prev " aria-label="Previous page: Statistics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../chapter1.html" class="navigation navigation-next " aria-label="Next page: Chapter 1">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction to Statistics","level":"1.2.1","depth":2,"next":{"title":"Chapter 1","level":"1.3","depth":1,"path":"chapter1.md","ref":"chapter1.md","articles":[]},"previous":{"title":"Statistics","level":"1.2","depth":1,"path":"k-means Clustering.md","ref":"k-means Clustering.md","articles":[{"title":"Introduction to Statistics","level":"1.2.1","depth":2,"path":"Statistics/Diabetes Logistic Regression/Diabetes Logistic Regression.md","ref":"Statistics/Diabetes Logistic Regression/Diabetes Logistic Regression.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Statistics/Diabetes Logistic Regression/Diabetes Logistic Regression.md","mtime":"2022-06-29T19:06:24.310Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-29T19:08:09.842Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
