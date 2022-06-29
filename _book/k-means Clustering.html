@@ -1,0 +1,1334 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Week 2 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="week3.md" />
+    
+    
+    <link rel="prev" href="chapter1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    Chapter 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="k-means Clustering.html">
+            
+                <a href="k-means Clustering.html">
+            
+                    
+                    Week 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="week3.md">
+            
+                <span>
+            
+                    
+                    Week 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="week4.md">
+            
+                <span>
+            
+                    
+                    Week 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Summary of Learning How to Learn.md">
+            
+                <span>
+            
+                    
+                    Summary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Week 2</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+</code></pre>
+<pre><code class="lang-python">df=pd.read_csv(<span class="hljs-string">&apos;Mall_Customers.csv&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">df.head()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Male</td>
+      <td>19</td>
+      <td>15</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Male</td>
+      <td>21</td>
+      <td>15</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Female</td>
+      <td>20</td>
+      <td>16</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>16</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Female</td>
+      <td>31</td>
+      <td>17</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">df.shape
+</code></pre>
+<pre><code>(200, 5)
+</code></pre><pre><code class="lang-python">df.isnull().sum()
+</code></pre>
+<pre><code>CustomerID                0
+Gender                    0
+Age                       0
+Annual Income (k$)        0
+Spending Score (1-100)    0
+dtype: int64
+</code></pre><pre><code class="lang-python">df.info()
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 0 means rows</span>
+<span class="hljs-comment"># 1 means column</span>
+</code></pre>
+<pre><code class="lang-python">df1 = df.drop(<span class="hljs-string">&apos;CustomerID&apos;</span>, axis=<span class="hljs-number">1</span>)
+</code></pre>
+<pre><code class="lang-python">df1.columns
+</code></pre>
+<pre><code>Index([&apos;Gender&apos;, &apos;Age&apos;, &apos;Annual Income (k$)&apos;, &apos;Spending Score (1-100)&apos;], dtype=&apos;object&apos;)
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># Transpose</span>
+df1.describe().T
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Age</th>
+      <td>200.0</td>
+      <td>38.85</td>
+      <td>13.969007</td>
+      <td>18.0</td>
+      <td>28.75</td>
+      <td>36.0</td>
+      <td>49.0</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>Annual Income (k$)</th>
+      <td>200.0</td>
+      <td>60.56</td>
+      <td>26.264721</td>
+      <td>15.0</td>
+      <td>41.50</td>
+      <td>61.5</td>
+      <td>78.0</td>
+      <td>137.0</td>
+    </tr>
+    <tr>
+      <th>Spending Score (1-100)</th>
+      <td>200.0</td>
+      <td>50.20</td>
+      <td>25.823522</td>
+      <td>1.0</td>
+      <td>34.75</td>
+      <td>50.0</td>
+      <td>73.0</td>
+      <td>99.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python"><span class="hljs-comment"># Investigate all the elements whithin each Feature </span>
+
+<span class="hljs-keyword">for</span> column <span class="hljs-keyword">in</span> df:
+    unique_vals = np.unique(df[column])
+    nr_values = len(unique_vals)
+    <span class="hljs-keyword">if</span> nr_values &lt; <span class="hljs-number">12</span>:
+        print(<span class="hljs-string">&apos;The number of values for feature {} :{} -- {}&apos;</span>.format(column, nr_values,unique_vals))
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">&apos;The number of values for feature {} :{}&apos;</span>.format(column, nr_values))
+</code></pre>
+<pre><code>The number of values for feature CustomerID :200
+The number of values for feature Gender :2 -- [&apos;Female&apos; &apos;Male&apos;]
+The number of values for feature Age :51
+The number of values for feature Annual Income (k$) :64
+The number of values for feature Spending Score (1-100) :84
+</code></pre><pre><code class="lang-python">df[<span class="hljs-string">&apos;Gender&apos;</span>].value_counts()
+</code></pre>
+<pre><code>Female    112
+Male       88
+Name: Gender, dtype: int64
+</code></pre><pre><code class="lang-python">sns.heatmap(df1.corr(),annot=<span class="hljs-keyword">True</span>)
+</code></pre>
+<pre><code>&lt;AxesSubplot:&gt;
+</code></pre><p><img src="output_12_1.png" alt="png"></p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> preprocessing
+</code></pre>
+<pre><code class="lang-python">df1.head()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Male</td>
+      <td>19</td>
+      <td>15</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Male</td>
+      <td>21</td>
+      <td>15</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Female</td>
+      <td>20</td>
+      <td>16</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Female</td>
+      <td>23</td>
+      <td>16</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Female</td>
+      <td>31</td>
+      <td>17</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">
+enc_gend=preprocessing.LabelEncoder().fit_transform(df1.loc[: ,<span class="hljs-string">&apos;Gender&apos;</span>])
+</code></pre>
+<pre><code class="lang-python">type(enc_gend)
+</code></pre>
+<pre><code>numpy.ndarray
+</code></pre><pre><code class="lang-python">print(enc_gend)
+</code></pre>
+<pre><code>[1 1 0 0 0 0 0 0 1 0 1 0 0 0 1 1 0 1 1 0 1 1 0 1 0 1 0 1 0 0 1 0 1 1 0 0 0
+ 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 1 1 0 0 1 1 0 0 1 0 1 0 0 0
+ 1 1 0 1 0 0 1 1 1 0 0 1 0 0 0 0 0 1 1 0 0 1 0 0 1 1 0 0 1 1 1 0 0 1 1 1 1
+ 0 0 1 0 0 0 0 0 0 1 0 0 1 0 0 1 1 1 1 1 1 0 0 1 0 0 1 1 0 0 1 0 0 1 1 1 0
+ 0 1 1 1 0 0 0 0 1 0 1 0 0 0 1 0 1 0 1 0 0 1 1 1 1 1 0 0 1 1 1 1 0 0 1 0 0
+ 1 0 1 0 0 0 0 1 0 0 0 0 1 1 1]
+</code></pre><pre><code class="lang-python">gender=pd.DataFrame(data=enc_gend, columns=[<span class="hljs-string">&quot;new_gender&quot;</span>])
+</code></pre>
+<pre><code class="lang-python">gender
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>new_gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows &#xD7; 1 columns</p>
+</div>
+
+
+
+
+<pre><code class="lang-python">df1[<span class="hljs-string">&quot;Gender&quot;</span>] = gender
+</code></pre>
+<pre><code class="lang-python">df1.head()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>19</td>
+      <td>15</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>21</td>
+      <td>15</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>20</td>
+      <td>16</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>23</td>
+      <td>16</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>31</td>
+      <td>17</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">X = df1
+</code></pre>
+<pre><code class="lang-python">X
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>19</td>
+      <td>15</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>21</td>
+      <td>15</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>20</td>
+      <td>16</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>23</td>
+      <td>16</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>31</td>
+      <td>17</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>0</td>
+      <td>35</td>
+      <td>120</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>0</td>
+      <td>45</td>
+      <td>126</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>1</td>
+      <td>32</td>
+      <td>126</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>1</td>
+      <td>32</td>
+      <td>137</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>1</td>
+      <td>30</td>
+      <td>137</td>
+      <td>83</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows &#xD7; 4 columns</p>
+</div>
+
+
+
+<h2 id="k-means">k-means</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sklearn.cluster <span class="hljs-keyword">import</span> KMeans
+</code></pre>
+<pre><code class="lang-python">fruits = [<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;cherry&quot;</span>]
+
+fruits[<span class="hljs-number">2</span>]
+</code></pre>
+<pre><code>&apos;cherry&apos;
+</code></pre><pre><code class="lang-python">x=
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># create a variable name to hold your list</span>
+my_list=[]
+
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>):
+    km=KMeans(n_clusters=i,random_state=<span class="hljs-number">42</span>)
+    km.fit(df1)
+    my_list.append(km.inertia_)
+</code></pre>
+<pre><code class="lang-python">my_list
+</code></pre>
+<pre><code>[308862.06,
+ 212889.44245524297,
+ 143391.5923603568,
+ 104414.67534220166,
+ 75427.71182424155,
+ 58348.64136331505,
+ 51575.27793107793,
+ 44359.63464114833,
+ 40942.511170061174,
+ 37515.84125504126]
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+</code></pre>
+<pre><code class="lang-python">mylist = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>):
+    km = KMeans(
+        n_clusters=i, init=<span class="hljs-string">&apos;random&apos;</span>, random_state=<span class="hljs-number">0</span> )
+    km.fit(df1)
+    mylist.append(km.inertia_)
+
+<span class="hljs-comment"># plot</span>
+plt.plot(range(<span class="hljs-number">1</span>, <span class="hljs-number">11</span>), mylist, marker=<span class="hljs-string">&apos;o&apos;</span>)
+plt.xlabel(<span class="hljs-string">&apos;Number of clusters&apos;</span>)
+plt.ylabel(<span class="hljs-string">&apos;Distortion&apos;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_31_0.png" alt="png"></p>
+<h2 id="inertia">Inertia</h2>
+<p>Inertia is Inertia measures how well a dataset was clustered by K-Means. It is calculated by measuring the distance between each data point and its centroid, squaring this distance, and summing these squares across one cluster.</p>
+<p>A good model is one with low inertia AND a low number of clusters (K). However, this is a tradeoff because as K increases, inertia decreases.</p>
+<p>To find the optimal K for a dataset, use the Elbow method; find the point where the decrease in inertia begins to slow. K=3 is the &#x201C;elbow&#x201D; of this graph.</p>
+<pre><code class="lang-python">no_of_clusters = range(<span class="hljs-number">2</span>,<span class="hljs-number">10</span>)
+inertia = []
+
+
+<span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> no_of_clusters:
+    kmeans = KMeans(n_clusters=f, random_state=<span class="hljs-number">0</span>)
+    kmeans = kmeans.fit(X)
+    u = kmeans.inertia_
+    inertia.append(u)
+    print(<span class="hljs-string">&quot;The innertia for :&quot;</span>, f, <span class="hljs-string">&quot;Clusters is:&quot;</span>, u)
+</code></pre>
+<pre><code>The innertia for : 2 Clusters is: 387065.7137713772
+The innertia for : 3 Clusters is: 271384.50878286787
+The innertia for : 4 Clusters is: 195401.19855991477
+The innertia for : 5 Clusters is: 157183.29637394776
+The innertia for : 6 Clusters is: 122630.44175335614
+The innertia for : 7 Clusters is: 103233.01724386725
+The innertia for : 8 Clusters is: 86053.67444777439
+The innertia for : 9 Clusters is: 76915.6613507064
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+</code></pre>
+<pre><code class="lang-python">kmeans = KMeans(n_clusters=<span class="hljs-number">3</span>, random_state=<span class="hljs-number">43</span>)
+kmeans = kmeans.fit(df1)
+predictions = kmeans.predict(df1)
+
+<span class="hljs-comment"># calculating the Counts of the cluster</span>
+unique, prediction_count = np.unique(predictions, return_counts=<span class="hljs-keyword">True</span>)
+counts = prediction_count.reshape(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Creating a dataframe</span>
+counts_df1 = pd.DataFrame(counts, columns = [<span class="hljs-string">&quot;Cluster 0&quot;</span>,<span class="hljs-string">&quot;Cluster 1&quot;</span>,<span class="hljs-string">&quot;Cluster 2&quot;</span>])
+
+<span class="hljs-comment"># Prints the clusters it assigned to each observation</span>
+<span class="hljs-comment">##print(&quot;The clusters are: &quot;, kmeans.labels_)</span>
+
+<span class="hljs-comment"># Prints the Inertia</span>
+<span class="hljs-comment">#print(&quot;The Inertia is: &quot;, kmeans.inertia_)</span>
+</code></pre>
+<pre><code class="lang-python">counts_df
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cluster 0</th>
+      <th>Cluster 1</th>
+      <th>Cluster 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>123</td>
+      <td>38</td>
+      <td>39</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">unique
+</code></pre>
+<pre><code>array([0, 1, 2])
+</code></pre><pre><code class="lang-python">prediction_count
+</code></pre>
+<pre><code>array([123,  38,  39], dtype=int64)
+</code></pre><pre><code class="lang-python">predictions
+</code></pre>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+       1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+       1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+       1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+       1, 2])
+</code></pre><pre><code class="lang-python">
+kmeans = KMeans(n_clusters=<span class="hljs-number">3</span>, random_state=<span class="hljs-number">0</span>)
+kmeans = kmeans.fit(df1)
+
+
+kmeans.labels_
+
+<span class="hljs-comment"># &quot;predictions&quot; for new data</span>
+predictions = kmeans.predict(df1)
+
+<span class="hljs-comment"># calculating the Counts of the cluster</span>
+unique, counts = np.unique(predictions, return_counts=<span class="hljs-keyword">True</span>)
+counts = counts.reshape(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Creating a datagrame</span>
+countscldf = pd.DataFrame(counts, columns = [<span class="hljs-string">&quot;Cluster 0&quot;</span>,<span class="hljs-string">&quot;Cluster 1&quot;</span>,<span class="hljs-string">&quot;Cluster 2&quot;</span>])
+
+<span class="hljs-comment"># display</span>
+countscldf
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cluster 0</th>
+      <th>Cluster 1</th>
+      <th>Cluster 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>38</td>
+      <td>39</td>
+      <td>123</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">predictions
+</code></pre>
+<pre><code>array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+       0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+       0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+       0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+       0, 1])
+</code></pre><pre><code class="lang-python">clusters = kmeans.labels_
+</code></pre>
+<pre><code class="lang-python">
+df[<span class="hljs-string">&apos;Clusters&apos;</span>] = clusters
+
+<span class="hljs-comment"># Creating a cluster Category</span>
+df[<span class="hljs-string">&apos;Clusters Category&apos;</span>] = <span class="hljs-string">&apos;No Data&apos;</span>
+df[<span class="hljs-string">&apos;Clusters Category&apos;</span>].loc[df[<span class="hljs-string">&apos;Clusters&apos;</span>] == <span class="hljs-number">0</span>] = <span class="hljs-string">&apos;Cluster 1&apos;</span>
+df[<span class="hljs-string">&apos;Clusters Category&apos;</span>].loc[df[<span class="hljs-string">&apos;Clusters&apos;</span>] == <span class="hljs-number">1</span>] = <span class="hljs-string">&apos;Cluster 2&apos;</span>
+df[<span class="hljs-string">&apos;Clusters Category&apos;</span>].loc[df[<span class="hljs-string">&apos;Clusters&apos;</span>] == <span class="hljs-number">2</span>] = <span class="hljs-string">&apos;Cluster 3&apos;</span>
+
+
+
+df.head(<span class="hljs-number">5</span>)
+</code></pre>
+<pre><code>C:\Users\ngugi\AppData\Local\Temp\ipykernel_32212\49891857.py:5: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[&apos;Clusters Category&apos;].loc[df[&apos;Clusters&apos;] == 0] = &apos;Cluster 1&apos;
+C:\Users\ngugi\AppData\Local\Temp\ipykernel_32212\49891857.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[&apos;Clusters Category&apos;].loc[df[&apos;Clusters&apos;] == 1] = &apos;Cluster 2&apos;
+C:\Users\ngugi\AppData\Local\Temp\ipykernel_32212\49891857.py:7: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[&apos;Clusters Category&apos;].loc[df[&apos;Clusters&apos;] == 2] = &apos;Cluster 3&apos;
+</code></pre><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+      <th>Clusters</th>
+      <th>Clusters Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Male</td>
+      <td>19</td>
+      <td>15</td>
+      <td>39</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Male</td>
+      <td>21</td>
+      <td>15</td>
+      <td>81</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Female</td>
+      <td>20</td>
+      <td>16</td>
+      <td>6</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>16</td>
+      <td>77</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Female</td>
+      <td>31</td>
+      <td>17</td>
+      <td>40</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python">https://zindi.africa/competitions/data-science-nigeria-challenge<span class="hljs-number">-1</span>-loan-default-prediction/data
+
+X[<span class="hljs-string">&apos;Labels&apos;</span>] = kmeans.labels_
+plt.figure(figsize=(<span class="hljs-number">12</span>, <span class="hljs-number">8</span>))
+sns.scatterplot(data= X, x=X[<span class="hljs-string">&apos;Annual Income (k$)&apos;</span>], y=X[<span class="hljs-string">&apos;Spending Score (1-100)&apos;</span>], hue=X[<span class="hljs-string">&apos;Labels&apos;</span>], 
+                palette=sns.color_palette(<span class="hljs-string">&apos;hls&apos;</span>, <span class="hljs-number">3</span>))
+plt.title(<span class="hljs-string">&apos;KMeans with 3 Clusters&apos;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_45_0.png" alt="png"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Label 0 is mid income and mid spending</p>
+<p>Label 1 is high income and high spending</p>
+<p>Label 2 is low income and low spending</p>
+<p>Label 3 is high income and low spending</p>
+<p>Label 4 is low income and high spending</p>
+<h2 id="what-next-after-customer-segmenting">What next after customer segmenting?</h2>
+<p><a href="https://contensis.uwaterloo.ca/sites/courses-archive/1191/ECON-344-ARBUS-302/lecture-content/module-2/week-6-2.aspx" target="_blank">https://contensis.uwaterloo.ca/sites/courses-archive/1191/ECON-344-ARBUS-302/lecture-content/module-2/week-6-2.aspx</a></p>
+<pre><code class="lang-python">df.to_csv(<span class="hljs-string">&apos;Cluster_Output.csv&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">df.sample(<span class="hljs-number">10</span>)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Annual Income (k$)</th>
+      <th>Spending Score (1-100)</th>
+      <th>Clusters</th>
+      <th>Clusters Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>163</th>
+      <td>164</td>
+      <td>Female</td>
+      <td>31</td>
+      <td>81</td>
+      <td>93</td>
+      <td>1</td>
+      <td>Cluster 2</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>109</td>
+      <td>Male</td>
+      <td>68</td>
+      <td>63</td>
+      <td>43</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>156</td>
+      <td>Female</td>
+      <td>27</td>
+      <td>78</td>
+      <td>89</td>
+      <td>1</td>
+      <td>Cluster 2</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>Male</td>
+      <td>25</td>
+      <td>24</td>
+      <td>73</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>137</td>
+      <td>Female</td>
+      <td>44</td>
+      <td>73</td>
+      <td>7</td>
+      <td>0</td>
+      <td>Cluster 1</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>54</td>
+      <td>Male</td>
+      <td>59</td>
+      <td>43</td>
+      <td>60</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>87</td>
+      <td>Female</td>
+      <td>55</td>
+      <td>57</td>
+      <td>58</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>113</td>
+      <td>Female</td>
+      <td>38</td>
+      <td>64</td>
+      <td>42</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>Male</td>
+      <td>31</td>
+      <td>25</td>
+      <td>73</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>56</td>
+      <td>Male</td>
+      <td>47</td>
+      <td>43</td>
+      <td>41</td>
+      <td>2</td>
+      <td>Cluster 3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<pre><code class="lang-python"><span class="hljs-keyword">print</span> (range(<span class="hljs-number">1</span>,<span class="hljs-number">30</span>))
+</code></pre>
+<pre><code>range(1, 30)
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter1.html" class="navigation navigation-prev " aria-label="Previous page: Chapter 1">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="week3.md" class="navigation navigation-next " aria-label="Next page: Week 3">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.3","depth":1,"next":{"title":"Week 3","level":"1.4","depth":1,"path":"week3.md","ref":"week3.md","articles":[]},"previous":{"title":"Chapter 1","level":"1.2","depth":1,"path":"chapter1.md","ref":"chapter1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k-means Clustering.md","mtime":"2022-06-29T18:27:13.903Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-29T18:30:07.579Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
